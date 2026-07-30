@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Amis du Ciel — livres illustrés pour enfants</title>
+<meta name="description" content="Les Amis du Ciel : des livres illustrés personnalisés pour faire connaître aux enfants la vie des saints, ces héros qui inspirent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #F6F0E1;
+    --parchment-deep: #EDE3CC;
+    --ink: #3A3128;
+    --aubergine: #5C4160;
+    --aubergine-deep: #3E2B44;
+    --gold: #B8912F;
+    --sage: #6F7F51;
+    --berry: #A8455A;
+    --line: rgba(58,49,40,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Instrument Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    color:var(--aubergine-deep);
+  }
+  .eyebrow{
+    font-family:'Instrument Sans', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 6vw;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:#2b2420;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    object-position: 50% 30%;
+    opacity:0.94;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,14,10,0.05) 0%, rgba(20,14,10,0.15) 45%, rgba(20,14,10,0.82) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    width:100%;
+    padding: 0 6vw 7vh;
+    color:#F6F0E1;
+    text-align:center;
+  }
+  .hero-mark{
+    font-size:0.78rem;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1.1rem;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    margin:0 0 0.6rem;
+    color:#FBF6E9;
+    line-height:1.05;
+  }
+  .hero p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(1.05rem, 2vw, 1.35rem);
+    color:#E7DFC9;
+    max-width:34rem;
+    margin:0 auto;
+  }
+  .scroll-cue{
+    position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
+    z-index:2;
+    width:1px; height:2.6rem;
+    background:linear-gradient(180deg, transparent, rgba(246,240,225,0.7));
+  }
+
+  /* ---------- SECTION shells ---------- */
+  section{padding:9vh 0;}
+  .section-head{margin-bottom:3rem; max-width:38rem;}
+  .section-head h2{font-size:clamp(1.9rem, 3.6vw, 2.7rem); margin:0.4rem 0 0;}
+
+  /* ---------- CONCEPT ---------- */
+  .concept{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:5vw;
+    align-items:center;
+  }
+  .concept-img{
+    border-radius:2px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(60,45,30,0.35);
+  }
+  .concept-text p{font-size:1.08rem; max-width:32rem;}
+  .dropcap::first-letter{
+    font-family:'Fraunces', serif;
+    font-size:3.6rem;
+    font-weight:600;
+    color:var(--gold);
+    float:left;
+    line-height:0.8;
+    padding-right:0.5rem;
+    padding-top:0.3rem;
+  }
+  .vine-rule{
+    width:64px; height:14px;
+    margin:0 0 1.2rem;
+    position:relative;
+  }
+  .vine-rule::before{
+    content:"";
+    position:absolute; left:0; top:50%;
+    width:100%; height:1px;
+    background:var(--gold);
+  }
+  .vine-rule::after{
+    content:"❦";
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%,-58%);
+    background:var(--parchment);
+    padding:0 0.5rem;
+    color:var(--gold);
+    font-size:0.9rem;
+  }
+
+  /* ---------- SHOWCASE ---------- */
+  .showcase{background:var(--parchment-deep);}
+  .showcase-head{text-align:center; max-width:36rem; margin:0 auto 3.5rem;}
+  .showcase-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);}
+  .book-frame{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:2.4rem;
+    align-items:start;
+  }
+  .book-card{
+    background:#fff;
+    padding:0.9rem;
+    border-radius:3px;
+    box-shadow:0 24px 50px -28px rgba(60,45,30,0.4);
+  }
+  .book-card img{border-radius:1px;}
+  .book-caption{
+    text-align:center;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--aubergine);
+    margin-top:2rem;
+    font-size:1.15rem;
+  }
+
+  /* ---------- VALUES STRIP ---------- */
+  .values{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2.4rem;
+    text-align:center;
+  }
+  .values .item h3{
+    font-size:1.25rem; margin:0 0 0.5rem;
+    color:var(--aubergine);
+  }
+  .values .item p{font-size:0.95rem; color:#5a4f42; margin:0;}
+  .values .item .glyph{
+    font-size:1.5rem; color:var(--gold); margin-bottom:0.7rem;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    position:relative;
+    background:var(--aubergine-deep);
+    color:#F1E9D4;
+    overflow:hidden;
+  }
+  .cta-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    align-items:stretch;
+  }
+  .cta-img{position:relative; min-height:420px;}
+  .cta-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .cta-form-wrap{
+    padding: 6vh 5vw;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .cta-form-wrap .eyebrow{color:var(--gold);}
+  .cta-form-wrap h2{color:#F8F2E2; margin:0.4rem 0 1rem; font-size:clamp(1.8rem,3.2vw,2.4rem);}
+  .cta-form-wrap p.lead{color:#D8CBA9; max-width:30rem; margin-bottom:2rem;}
+  form{display:grid; gap:1.1rem; max-width:30rem;}
+  .field{display:grid; gap:0.4rem;}
+  label{font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:#C9BB98;}
+  input, textarea{
+    background:rgba(246,240,225,0.06);
+    border:1px solid rgba(246,240,225,0.28);
+    border-radius:2px;
+    padding:0.75rem 0.9rem;
+    color:#F6F0E1;
+    font-family:'Instrument Sans', sans-serif;
+    font-size:0.95rem;
+  }
+  input::placeholder, textarea::placeholder{color:rgba(246,240,225,0.4);}
+  input:focus, textarea:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    background:rgba(246,240,225,0.1);
+  }
+  textarea{resize:vertical; min-height:88px;}
+  button{
+    justify-self:start;
+    background:var(--gold);
+    color:#2b2115;
+    border:none;
+    padding:0.85rem 2rem;
+    font-family:'Instrument Sans', sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    letter-spacing:0.03em;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  button:hover{background:#CBA43F;}
+  button:focus-visible{outline:2px solid #F6F0E1; outline-offset:2px;}
+  .form-note{font-size:0.82rem; color:#B7A87E; margin-top:0.9rem;}
+
+  footer{
+    text-align:center;
+    padding:3rem 6vw;
+    font-size:0.85rem;
+    color:#8a7c66;
+  }
+  footer .vine-rule{margin:0 auto 1rem;}
+
+  @media (max-width: 860px){
+    .concept, .cta-grid{grid-template-columns:1fr;}
+    .cta-img{min-height:280px; order:-1;}
+    .book-frame{grid-template-columns:1fr;}
+    .values{grid-template-columns:1fr;}
+    section{padding:7vh 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Une mère et sa fille lisent ensemble un livre illustré, dans un salon baigné de lumière">
+    <div class="hero-content">
+      <div class="hero-mark">Les Amis du Ciel</div>
+      <h1>Des héros à faire<br>entrer dans leur chambre</h1>
+      <p>Des livres illustrés qui font connaître à chaque enfant son propre saint patron — cet ami du ciel qui veille et prie pour lui, chaque jour.</p>
+    </div>
+    <div class="scroll-cue"></div>
+  </section>
+
+  <section class="concept">
+    <div class="wrap concept" style="padding-top:2vh;">
+      <div class="concept-img">
+        <img src="images/concept.jpg" alt="Un enfant allongé dans l'herbe, lisant un livre illustré au soleil">
+      </div>
+      <div class="concept-text">
+        <div class="eyebrow">Le concept</div>
+        <div class="vine-rule" style="margin-top:0.6rem;"></div>
+        <p class="dropcap">Chaque enfant porte un prénom, et souvent, sans le savoir, un saint patron : quelqu'un qui veille sur lui et prie pour lui, chaque jour. Aujourd'hui, cet ami du ciel reste le plus souvent un inconnu — un nom sur un calendrier, jamais une vraie histoire.</p>
+        <p>Les Amis du Ciel raconte à l'enfant qui est ce héros discret qui porte son prénom : son histoire, illustrée comme un conte, pour qu'il apprenne à le reconnaître, à l'aimer, et à tendre à son tour vers ce qu'il y a de plus grand en lui.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="wrap">
+      <div class="showcase-head">
+        <div class="eyebrow">Le premier livre de la collection</div>
+        <h2>L'histoire de Sainte Constance</h2>
+      </div>
+      <div class="book-frame">
+        <div class="book-card">
+          <img src="images/book-cover.jpg" alt="Un enfant tient dans ses mains le livre L'Histoire de Sainte Constance">
+        </div>
+        <div class="book-card">
+          <img src="images/book-open.jpg" alt="Le livre L'Histoire de Sainte Constance posé, entouré de fleurs et d'une peluche">
+        </div>
+      </div>
+      <p class="book-caption">Livre + livre audio + musique originale — offert pour les 4 ans d'une filleule, et le point de départ de toute une collection.</p>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="wrap values">
+      <div class="item">
+        <div class="glyph">✦</div>
+        <h3>Son propre saint patron</h3>
+        <p>Le livre est façonné autour du prénom de l'enfant, pour qu'il découvre l'ami du ciel qui veille et prie pour lui chaque jour.</p>
+      </div>
+      <div class="item">
+        <div class="glyph">✦</div>
+        <h3>Un livre audio inclus</h3>
+        <p>L'histoire racontée à voix haute, pour l'écouter le soir, seul ou blotti contre un parent.</p>
+      </div>
+      <div class="item">
+        <div class="glyph">✦</div>
+        <h3>Une musique originale</h3>
+        <p>Un chant composé sur la vie du saint, à fredonner bien après la dernière page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="demande">
+    <div class="cta-grid">
+      <div class="cta-img">
+        <img src="images/final.jpg" alt="Un père et son fils lisent ensemble un livre illustré, le soir">
+      </div>
+      <div class="cta-form-wrap">
+        <div class="eyebrow">Envie d'un livre pour votre enfant ?</div>
+        <h2>Racontons ensemble<br>son prochain héros</h2>
+        <p class="lead">Dites-m'en un peu plus sur l'enfant, son prénom et l'occasion — je reviens vers vous pour construire son livre, son livre audio et sa musique.</p>
+        <form id="request-form">
+          <div class="field">
+            <label for="name">Votre nom</label>
+            <input type="text" id="name" name="name" placeholder="Prénom et nom" required>
+          </div>
+          <div class="field">
+            <label for="email">Votre email</label>
+            <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+          </div>
+          <div class="field">
+            <label for="saint">Saint ou prénom concerné</label>
+            <input type="text" id="saint" name="saint" placeholder="Ex : Sainte Constance, ou un prénom à explorer">
+          </div>
+          <div class="field">
+            <label for="occasion">Occasion</label>
+            <input type="text" id="occasion" name="occasion" placeholder="Baptême, communion, anniversaire...">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Racontez-moi votre projet..."></textarea>
+          </div>
+          <button type="submit">Envoyer ma demande</button>
+        </form>
+        <p class="form-note">En envoyant, votre messagerie s'ouvre avec les informations déjà pré-remplies.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="vine-rule"></div>
+    Les Amis du Ciel — une collection de livres illustrés pour enfants
+  </footer>
+
+<script>
+  document.getElementById('request-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const saint = document.getElementById('saint').value;
+    const occasion = document.getElementById('occasion').value;
+    const message = document.getElementById('message').value;
+
+    const destinationEmail = "maxence@famillehenry.org";
+    const subject = encodeURIComponent("Demande de livre — Les Amis du Ciel");
+    const body = encodeURIComponent(
+      `Nom : ${name}\nEmail : ${email}\nSaint / prénom concerné : ${saint}\nOccasion : ${occasion}\n\nMessage :\n${message}`
+    );
+    window.location.href = `mailto:${destinationEmail}?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
